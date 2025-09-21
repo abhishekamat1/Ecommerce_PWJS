@@ -13,12 +13,13 @@ class ContactUsPage {
         this.uploadFileInput = page.locator('input[name="upload_file"]');
         this.submitButton = page.locator('input[value="Submit"]');
         this.successMsg = page.locator('//div[@class="status alert alert-success"]');
+        this.homeButton = page.locator('//a[normalize-space()="Home"]');
     }
 
     async gotoHome() {
-        await this.page.goto('http://automationexercise.com/');
-        await expect(this.page).toHaveTitle('Automation Exercise');
-    }
+    await this.page.goto('http://automationexercise.com/');
+    await expect(this.page).toHaveTitle('Automation Exercise');
+}
 
     async openContactForm() {
         await this.contactUsLink.click();
@@ -37,17 +38,24 @@ class ContactUsPage {
     }
 
     async submitForm() {
-        // ✅ Attach dialog handler BEFORE clicking submit
         this.page.once('dialog', async dialog => {
             console.log(`Dialog message: ${dialog.message()}`);
-            await dialog.accept();  // presses "OK"
+            await dialog.accept();
         });
-
+        await this.page.waitForTimeout(3000);
         await this.submitButton.click();
     }
 
     async assertSuccess() {
-        await expect(this.successMsg).toBeVisible();
+        // Assert the text after it's visible
+        await expect(this.successMsg).toHaveText(
+            'Success! Your details have been submitted successfully.'
+        );
+    }
+
+    async homepage() {
+        await this.homeButton.click();
+        await expect(this.page).toHaveTitle('Automation Exercise');
     }
 }
 
