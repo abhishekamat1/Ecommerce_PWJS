@@ -1,10 +1,10 @@
-//**Code ** 
-//Reverse string/array
-// Remove duplicates from array
-// Find 2nd largest number
-// First non-repeating char in string
-// Implement stack/queue with classes
+import { expect, test } from '@playwright/test';
 
-//Why Playwright over Selenium/Cypress?
-//How do you handle waits?
-//How do you parameterize tests?
+test('Verify test case page', async ({ page }) => {
+
+    await page.goto('http://automationexercise.com');
+    await expect(page.locator('(//div[@class="carousel-inner"])[1]')).toBeVisible();
+    await page.locator('//a[contains(text(),"Test Cases")]').click();
+    await expect(page.locator('div[class="panel-group"] h5 span')).toBeVisible();
+
+})
