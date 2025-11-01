@@ -1,5 +1,5 @@
 const { test } = require('@playwright/test');
-const { HomePage } = require('../pages/homepage');
+const { HomePage } = require('../pages/homePage');
 const { ProductDetailsPage } = require('../pages/productdetailspage');
 
 test('Verify All Products and product detail page', async ({ page }) => {

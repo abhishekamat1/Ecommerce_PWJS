@@ -3,7 +3,7 @@ import { test } from '@playwright/test';
 const { SignupPage } = require('../pages/signup');
 const { readExcelData } = require('../pages/readexcel');
 
-const filePath = '/Users/abhishekamat/Documents/Ecom_PWJS/testdata/testdata.xlsx';
+const filePath = '/Users/abhishekamat/Documents/Ecomm_PWJS/testdata/testdata.xlsx';
 const loginData = readExcelData(filePath, 'login'); // Sheet "login"
 
 test.describe('Signup with existing email', () => {

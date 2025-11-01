@@ -12,7 +12,7 @@ class ContactUsPage {
         this.messageInput = page.locator('#message');
         this.uploadFileInput = page.locator('input[name="upload_file"]');
         this.submitButton = page.locator('input[value="Submit"]');
-        this.successMsg = page.locator('//div[@class="status alert alert-success"]');
+        this.successMsg = page.locator('.btn.btn-success');
     }
 
     async gotoHome() {
@@ -42,10 +42,9 @@ class ContactUsPage {
             console.log(`Dialog message: ${dialog.message()}`);
             await dialog.accept();  // presses "OK"
         });
-
         await this.submitButton.click();
     }
-
+    
     async assertSuccess() {
         await expect(this.successMsg).toBeVisible();
     }

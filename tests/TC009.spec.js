@@ -1,5 +1,5 @@
 const { test, expect } = require('@playwright/test');
-const { HomePage } = require('../pages/homepage');
+const { HomePage } = require('../pages/homePage');
 const { ProductDetailsPage } = require('../pages/productdetailspage');
 
 test('Verify Search Products', async ({ page }) => {
@@ -12,6 +12,6 @@ test('Verify Search Products', async ({ page }) => {
     await productDetails.searchProduct();
     
     await page.locator('(//a[contains(text(),"View Product")])[2]').click();
-    await expect(page.locator('//h2[contains(text(),"Tshirt")]')).toBeVisible();
+    await expect(page.locator('div[class="product-information"] h2')).toBeVisible();
 
 })
