@@ -3,7 +3,7 @@ import { test } from '@playwright/test';
 const { LoginPage } = require('../pages/loginpage');
 const { readExcelData } = require('../pages/readexcel');
 
-const filePath = '/Users/abhishekamat/Documents/Ecom_PWJS/testdata/testdata.xlsx';
+const filePath = '/Users/abhishekamat/Documents/Ecomm_PWJS/testdata/testdata.xlsx';
 
 // Read login data from "Login" sheet
 const loginData = readExcelData(filePath, 'login');

@@ -4,7 +4,7 @@ const { SignupPage } = require('../pages/signup');
 const { readExcelData } = require('../pages/readexcel');
 const { writeExcelData } = require('../pages/writeexcel');
 
-const filePath = '/Users/abhishekamat/Documents/Ecom_PWJS/testdata/testdata.xlsx';
+const filePath = '/Users/abhishekamat/Documents/Ecomm_PWJS/testdata/testdata.xlsx';
 
 // Read input data
 const signupData = readExcelData(filePath, 'Signup');

@@ -40,7 +40,8 @@ class SignupPage {
   }
 
   async navigateToLogin() {
-    await this.page.goto('https://www.automationexercise.com/');
+    await this.page.goto('https://automationexercise.com');
+    //await this.page.pause(9000);
     await this.loginLink.click();
   }
 
