@@ -1,6 +1,5 @@
 // pages/LoginPage.js
 import { expect } from "@playwright/test";
-import { TIMEOUT } from "dns";
 
 class LoginPage {
   constructor(page) {
@@ -17,8 +16,7 @@ class LoginPage {
   }
 
   async gotoHome() {
-    await this.page.goto('http://automationexercise.com/');
-    await this.page.waitForSelector('img[alt="Website for automation practice"]', { state: 'visible', timeout: 20000 });
+    await this.page.goto('https://www.automationexercise.com');
     await expect(this.page).toHaveTitle('Automation Exercise');
   }
 
