@@ -1,0 +1,2 @@
+HI,
+This file has been created to test uploading functionality in 'Contact Us Form' page
