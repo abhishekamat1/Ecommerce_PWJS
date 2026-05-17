@@ -2,6 +2,7 @@ package org.example;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -18,6 +19,7 @@ import java.time.Duration;
 
 public class TestTC008ProductPage {
     WebDriver driver;
+    JavascriptExecutor js;
 
     @BeforeTest
     public void setup(){
@@ -27,6 +29,7 @@ public class TestTC008ProductPage {
         driver= new ChromeDriver(options);
         driver.manage().window().maximize();
         driver.get("https://automationexercise.com/");
+        js= (JavascriptExecutor) driver;
     }
 
     @Test
@@ -39,7 +42,10 @@ public class TestTC008ProductPage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id= 'search_product']")));
         System.out.println(productpage.AllProductsBanner());
         Assert.assertTrue(productpage.AllProductsBanner().contains("ALL PRODUCTS"));
-        driver.findElement(By.xpath("//a[@href='/product_details/1']/i[@class='fa fa-plus-square']")).click();
+        WebElement viewProduct= driver.findElement(By.xpath("//a[@href= '/product_details/1']/i[@class= 'fa fa-plus-square']"));
+        js.executeScript("arguments[0].scrollIntoView();",viewProduct);
+        viewProduct.click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h2[text()= 'Blue Top']")));
         WebElement name= driver.findElement(By.xpath("//h2[text()= 'Blue Top']"));
         Assert.assertTrue(name.isDisplayed());
         WebElement category= driver.findElement(By.xpath("//p[text()= 'Category: Women > Tops']"));
