@@ -7,32 +7,32 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class homePage {
-    WebDriver driver;
-     public homePage(WebDriver driver){
+    private final WebDriver driver;
+    public homePage(WebDriver driver){
         this.driver= driver;
          PageFactory.initElements(driver, this);
     }
     //Locators
     @FindBy(xpath= "//a[@href= '/products']")
-    WebElement Product;
+    private WebElement Product;
 
      @FindBy(xpath= "//li/a[@href= '/view_cart']")
-    WebElement Cart;
+    private WebElement Cart;
 
     @FindBy(xpath= "//li/a[@href= '/login']")
-    WebElement signup_login;
+    private WebElement signup_login;
 
     @FindBy(xpath= "//li/a[@href= '/test_cases']")
-    WebElement TestCases;
+    private WebElement TestCases;
 
     @FindBy(xpath= "//li/a[@href= '/contact_us']")
-    WebElement Contact_us;
+    private WebElement Contact_us;
 
     @FindBy(xpath= "//i[@class= 'fa fa-user']/following-sibling::b")
-    public WebElement homePage_userName;
+    private WebElement homePage_userName;
 
-        @FindBy(xpath="//a[@href= '/logout']")
-    WebElement logout_button;
+    @FindBy(xpath="//a[@href= '/logout']")
+    private WebElement logout_button;
 
     public void product(){
         Product.click();

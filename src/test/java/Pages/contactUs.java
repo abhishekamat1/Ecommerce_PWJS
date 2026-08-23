@@ -13,31 +13,31 @@ public class contactUs {
     }
 
     @FindBy(xpath= "//h2[text()= 'Get In Touch']")
-    WebElement banner;
+    private WebElement banner;
 
     @FindBy(xpath= "//input[@placeholder= 'Name']")
-    WebElement nameText;
+    private WebElement nameText;
 
     @FindBy(xpath= "//input[@placeholder= 'Email']")
-    WebElement emailText;
+    private WebElement emailText;
 
     @FindBy(xpath= "//input[@placeholder= 'Subject']")
-    WebElement subjectText;
+    private WebElement subjectText;
 
     @FindBy(xpath= "//textarea[@placeholder= 'Your Message Here']")
-    WebElement messageAreaText;
+    private WebElement messageAreaText;
 
     @FindBy(xpath= "//input[@name= 'upload_file']")
-    WebElement fileUploadBox;
+    private WebElement fileUploadBox;
 
     @FindBy(xpath= "//input[@name= 'submit']")
-    WebElement submitButton;
+    private WebElement submitButton;
 
     @FindBy(xpath= "//div[@class= 'status alert alert-success']")
-    WebElement successAlert;
+    private WebElement successAlert;
 
     @FindBy(xpath= "//a[@class= 'btn btn-success']")
-    WebElement homebutton;
+    private WebElement homebutton;
 
     public String Banner(){
         return banner.getText();

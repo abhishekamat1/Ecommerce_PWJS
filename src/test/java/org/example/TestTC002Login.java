@@ -17,18 +17,14 @@ import Pages.signupLoginPage;
 
 import java.time.Duration;
 
-public class TestTC002Login{
-    WebDriver driver;
-
-    @BeforeTest
-    public void setup(){
-        WebDriverManager.chromedriver().setup();
-        ChromeOptions options= new ChromeOptions();
-        options.addArguments("--incognito");
-        driver= new ChromeDriver(options);
-        driver.manage().window().maximize();
-        driver.get("http://automationexercise.com");
-    }
+public class TestTC002Login extends BaseTest{
+   // WebDriver driver;
+//   BaseTest baseTest= new BaseTest();
+//
+//    @BeforeTest
+//    public void setup(){
+//        baseTest.setup("chrome");
+//    }
 
     @Test
     public void LoginPage(){
@@ -46,9 +42,8 @@ public class TestTC002Login{
 
     }
 
-    @AfterTest
-    public void close(){
-        driver.close();
-        driver.quit();
-    }
+//    @AfterTest
+//    public void close(){
+//        baseTest.tearDown();
+//    }
 }

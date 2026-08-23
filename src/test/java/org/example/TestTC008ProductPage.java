@@ -40,11 +40,10 @@ public class TestTC008ProductPage {
         homepage.product();
         WebDriverWait wait= new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id= 'search_product']")));
-        System.out.println(productpage.AllProductsBanner());
         Assert.assertTrue(productpage.AllProductsBanner().contains("ALL PRODUCTS"));
-        WebElement viewProduct= driver.findElement(By.xpath("//a[@href= '/product_details/1']/i[@class= 'fa fa-plus-square']"));
-        js.executeScript("arguments[0].scrollIntoView();",viewProduct);
-        viewProduct.click();
+        WebElement view_product= driver.findElement(By.xpath("//a[@href= '/product_details/1']/i[@class= 'fa fa-plus-square']"));
+        js.executeScript("arguments[0].scrollIntoView();",view_product);
+        productpage.viewProduct(1);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h2[text()= 'Blue Top']")));
         WebElement name= driver.findElement(By.xpath("//h2[text()= 'Blue Top']"));
         Assert.assertTrue(name.isDisplayed());

@@ -1,0 +1,18 @@
+<suite name="org.example" parallel="tests" thraed-count="3">
+
+
+    <test name="chromeTest">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+                <class name="org.example.TestTC002Login"/>
+        </classes>
+    </test>
+
+    <test name="fireFoxTest">
+            <parameter name="browser" value="firefox"/>
+                    <classes>
+                            <class name="org.example.TestTC002Login"/>
+                    </classes>
+    </test>
+
+</suite>
